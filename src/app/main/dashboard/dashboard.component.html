@@ -1,0 +1,538 @@
+<div id="dashboard" class="page-layout blank grey-100-bg mb-56" fusePerfectScrollbar>
+
+    <div class="content pb-16" [ngClass.gt-sm]="'content p-16'">
+
+        <div class="widget">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="column">
+                    <div class="px-8" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div fxLayout="row" fxLayoutGap="8px">
+
+                            <img class="w-48 h-48" [src]="'assets/images/crypto/'+selectedCurrency.icon+'.svg'">
+
+                            <mat-form-field [ngClass.gt-sm]="'w-200'">
+                                <mat-select class="simplified" [(ngModel)]="selectedCurrency">
+                                    <mat-option *ngFor="let currency of currencies" [value]="currency">
+                                        {{ currency.title }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+
+                        <div fxLayout="row" class="pr-24" fxLayoutGap="8px" fxLayoutAlign="end center" fxHide fxShow.gt-sm>
+                            <p class="secondary-text font-weight-500">O
+                                <span class="font-weight-300">{{ currentOhlc.O }}</span>
+                            </p>
+                            <p class="secondary-text font-weight-500">H
+                                <span class="font-weight-300">{{ currentOhlc.H }}</span>
+                            </p>
+                            <p class="secondary-text font-weight-500">L
+                                <span class="font-weight-300">{{ currentOhlc.L }}</span>
+                            </p>
+                            <p class="secondary-text font-weight-500">C
+                                <span class="font-weight-300">{{ currentOhlc.C }}</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div [chart]="stock"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content pb-16" [ngClass.gt-sm]="'content p-16'" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-sm="row"
+        fxLayoutAlign.gt-sm="start start" fxLayoutGap="16px">
+
+        <!-- Widget 2 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">ASSETS</div>
+
+                    <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="end center">
+                        <mat-form-field>
+                            <mat-select value="usd">
+                                <mat-option value="usd">USD</mat-option>
+                                <mat-option value="php">PHP</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="w-96" [ngClass.gt-sm]="'w-128'">
+                            <input matInput value="35,361.37" readonly>
+                            <span matPrefix>$&nbsp;</span>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">TOKEN</th>
+                            <th class="text-left">QTY</th>
+                            <th class="text-left">VALUE</th>
+                            <th class="text-right">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 2 -->
+
+        <!-- Widget 3 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">WATCHLIST</div>
+
+                    <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="end center">
+                        <mat-form-field>
+                            <mat-select value="bok">
+                                <mat-option value="bok">BOK</mat-option>
+                                <mat-option value="btc">BTC</mat-option>
+                                <mat-option value="eth">ETH</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">TOKEN</th>
+                            <th class="text-left">PRICE</th>
+                            <th class="text-right">ACTION</th>
+                            <th class="text-right">REMOVE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-right">
+                                <button mat-button color="primary">GOTO MARKETS</button>
+                            </td>
+                            <td class="text-right">
+                                <button mat-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-right">
+                                <button mat-button color="primary">GOTO MARKETS</button>
+                            </td>
+                            <td class="text-right">
+                                <button mat-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-right">
+                                <button mat-button color="primary">GOTO MARKETS</button>
+                            </td>
+                            <td class="text-right">
+                                <button mat-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-right">
+                                <button mat-button color="primary">GOTO MARKETS</button>
+                            </td>
+                            <td class="text-right">
+                                <button mat-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 3 -->
+
+    </div>
+
+    <div class="content pb-16" [ngClass.gt-sm]="'content p-16'" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-sm="row"
+        fxLayoutAlign.gt-sm="start start" fxLayoutGap="16px">
+
+        <!-- Widget 4 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">OPEN ORDERS</div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">PAIR</th>
+                            <th class="text-left">QTY</th>
+                            <th class="text-left">PRICE</th>
+                            <th class="text-right">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 4 -->
+
+        <!-- Widget 5 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">HISTORY</div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">TOKEN</th>
+                            <th class="text-left">QTY</th>
+                            <th class="text-left">PRICE</th>
+                            <th class="text-right">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="accent">BUY</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td>
+                                <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="end center">
+                                    <button mat-button color="warn">SELL</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 6 -->
+
+    </div>
+
+    <div class="content pb-16" [ngClass.gt-sm]="'content p-16'" fxLayout="column" fxLayoutAlign="start" fxLayout.gt-sm="row"
+        fxLayoutAlign.gt-sm="start start" fxLayoutGap="16px">
+
+        <!-- Widget 7 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">ORDER BOOK</div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">AMOUNT</th>
+                            <th class="text-left">PRICE</th>
+                            <th class="text-left">SUM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 7 -->
+
+        <!-- Widget 8 -->
+        <div class="widget" fxFlex="50">
+
+            <div class="fuse-card auto-width p-16">
+
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="h1 pr-16">TRADE HISTORY</div>
+                </div>
+
+                <table class="simple">
+                    <thead>
+                        <tr>
+                            <th class="text-left">AMOUNT</th>
+                            <th class="text-left">PRICE</th>
+                            <th class="text-left">TIME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                            <td class="text-left">xxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="card-divider full-width"></div>
+
+                <div class="p-8 pt-16" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="accent">SHOW MORE</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!--/ Widget 8 -->
+
+    </div>
+
+</div>

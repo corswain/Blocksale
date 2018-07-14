@@ -1,0 +1,15 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            "bok",
+            "camelCase"
+        ],
+        "component-selector": false
+    },
+    "linterOptions": {
+        "exclude": ["@fuse/**/*.ts"]
+    }
+}
