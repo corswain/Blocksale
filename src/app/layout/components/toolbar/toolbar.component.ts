@@ -5,7 +5,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 import { FuseConfigService } from '@fuse/services/config.service';
-import { FuseLoadingBarService } from '@fuse/services/loading-bar.service';
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -23,7 +22,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     hiddenNavbar: boolean;
     languages: any;
     selectedLanguage: any;
-    showLoadingBar: boolean;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -39,7 +37,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
-        private _fuseLoadingBarService: FuseLoadingBarService,
         private _fuseSidebarService: FuseSidebarService,
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _translateService: TranslateService
@@ -72,13 +69,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
      * On init
      */
     ngOnInit(): void {
-        // Subscribe to the Fuse loading bar service
-        this._fuseLoadingBarService.visible
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(visible => {
-                this.showLoadingBar = visible;
-            });
-
         // Subscribe to the config changes
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
