@@ -1,7 +1,5 @@
 {
   "singleQuote": true,
-  "tabWidth": 4,
-  "arrowParens": "always",
-  "requirePragma": true,
-  "insertPragma": true
+  "tabWidth": 2,
+  "arrowParens": "always"
 }
