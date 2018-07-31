@@ -31,7 +31,7 @@ export const navigation: FuseNavigation[] = [
     translate: 'NAV.PAGE.SUPPORT',
     type: 'item',
     icon: 'question_answer',
-    url: '/support'
+    url: '/chat-support'
   },
   {
     id: 'about',

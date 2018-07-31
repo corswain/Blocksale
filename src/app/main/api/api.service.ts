@@ -50,7 +50,6 @@ export class ApiService implements Resolve<any> {
   getApiContent(): Promise<any> {
     return new Promise((resolve, reject) => {
       this._httpClient.get('api/api-content').subscribe((response: any) => {
-        console.log(response);
         this.onApiChanged.next(response);
         resolve(response);
       }, reject);

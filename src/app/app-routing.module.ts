@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: './main/api/api.module#ApiModule'
   },
   {
+    path: 'chat-support',
+    loadChildren: './main/chat/chat.module#ChatModule'
+  },
+  {
     path: 'errors',
     loadChildren: './main/errors/errors.module#ErrorsModule'
   },
