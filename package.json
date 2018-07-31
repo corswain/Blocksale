@@ -1,7 +1,7 @@
 {
     "name": "blocksale",
     "description": "Blockchain ICO UX web application",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "(MIT OR Apache-2.0)",
     "author": {
         "name": "Ezra Aqui N. Diaz",
@@ -59,6 +59,7 @@
         "ng2-charts": "1.6.0",
         "ngx-color-picker": "6.5.0",
         "ngx-cookie-service": "1.0.10",
+        "ngx-loading": "1.0.14",
         "perfect-scrollbar": "1.4.0",
         "prismjs": "1.15.0",
         "rxjs": "6.2.1",

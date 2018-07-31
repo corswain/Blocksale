@@ -1,0 +1,13 @@
+<div class="alert-dialog-container">
+    <h1 mat-dialog-title>{{ data.title }}</h1>
+
+    <div mat-dialog-content>
+        <p>{{ data.content }}</p>
+    </div>
+
+    <mat-divider class="mt-16"></mat-divider>
+
+    <div mat-dialog-actions dir="rtl">
+        <button mat-button color="accent" (click)="onOkClick()" cdkFocusInitial>OK</button>
+    </div>
+</div>
