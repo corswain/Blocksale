@@ -9,7 +9,10 @@ import { FaqService } from './faq.service';
 const routes: Routes = [
   {
     path: '',
-    component: FaqComponent
+    component: FaqComponent,
+    resolve: {
+      faq: FaqService
+    }
   },
   {
     path: '**',

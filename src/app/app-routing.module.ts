@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: './main/dashboard/dashboard.module#DashboardModule'
   },
   {
+    path: 'faq',
+    loadChildren: './main/faq/faq.module#FaqModule'
+  },
+  {
     path: 'errors',
     loadChildren: './main/errors/errors.module#ErrorsModule'
   },

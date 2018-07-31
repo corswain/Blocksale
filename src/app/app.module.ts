@@ -1,6 +1,6 @@
 import 'hammerjs';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeDbService } from 'app/fake-db/fake-db.service';
 import { mainConfig } from 'layout/layout.config';
 import { LayoutModule } from 'layout/layout.module';
@@ -28,7 +28,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
 
     TranslateModule.forRoot(),
-    InMemoryWebApiModule.forRoot(FakeDbService, {
+    HttpClientInMemoryWebApiModule.forRoot(FakeDbService, {
       delay: 0,
       passThruUnknownUrl: true
     }),

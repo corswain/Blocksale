@@ -33,8 +33,9 @@ navbar {
             height: 64px;
             min-height: 64px;
             padding: 0 16px 0 24px;
-            transition: padding 200ms ease;
-            background-color: #512da8; // rgba(255, 255, 255, .05);
+            transition: padding 200ms ease; // background-color: #512da8; 
+            background: #1A237E;
+            background: linear-gradient(to right, #0E2A3B 0%, #34306B 100%); // rgba(255, 255, 255, .05);
             @include mat-elevation(1);
             .logo {
                 display: flex;
