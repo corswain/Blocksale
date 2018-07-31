@@ -1,0 +1,73 @@
+<div id="api" class="page-layout simple left-sidebar inner-scroll">
+
+    <!-- SIDEBAR -->
+    <fuse-sidebar class="sidebar" name="api-left-sidebar-1" position="left" lockedOpen="gt-md">
+
+        <!-- SIDEBAR CONTENT -->
+        <div class="content" fusePerfectScrollbar>
+
+            <div class="steps">
+
+                <div class="step" *ngFor="let step of api.steps; let i = index; let last = last; let first = first" (click)="gotoStep(i)"
+                    [ngClass]="{'current': currentStep === i, 'completed': currentStep > i, 'last': last, 'first': first}">
+                    <div class="title">{{step.title}}</div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- / SIDEBAR CONTENT -->
+
+    </fuse-sidebar>
+    <!-- / SIDEBAR -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- HEADER -->
+        <div class="header mat-accent-bg p-24" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-icon-button class="sidebar-toggle mr-16" fxHide.gt-md (click)="toggleSidebar('api-left-sidebar-1')">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <div>
+                <h2>{{api.title}}</h2>
+            </div>
+
+        </div>
+        <!-- / HEADER -->
+
+        <!-- CONTENT -->
+        <div id="api-content" class="content">
+
+            <ng-container *ngFor="let step of api.steps; let i = index;">
+
+                <div class="api-step" fusePerfectScrollbar *ngIf="currentStep === i" [@slideIn]="animationDirection">
+
+                    <div id="api-step-content" class="api-step-content" [innerHTML]="step.content"></div>
+
+                </div>
+
+            </ng-container>
+
+        </div>
+        <!-- / CONTENT -->
+
+        <div class="step-navigation">
+
+            <button mat-fab class="previous mat-accent white-fg" (click)="gotoPreviousStep()" [disabled]="currentStep === 0" [fxHide]="currentStep === 0">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+
+            <button mat-fab class="next mat-accent white-fg" (click)="gotoNextStep()" [disabled]="currentStep === api.totalSteps - 1"
+                [fxHide]="currentStep === api.totalSteps - 1">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+
+        </div>
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

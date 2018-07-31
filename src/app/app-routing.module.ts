@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: './main/faq/faq.module#FaqModule'
   },
   {
+    path: 'api',
+    loadChildren: './main/api/api.module#ApiModule'
+  },
+  {
     path: 'errors',
     loadChildren: './main/errors/errors.module#ErrorsModule'
   },
